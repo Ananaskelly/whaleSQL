@@ -1,0 +1,110 @@
+{
+  "room1": {
+    "capacity": 90,
+    "number": 396
+  },
+  "room2": {
+    "capacity": 99,
+    "number": 174
+  },
+  "room3": {
+    "capacity": 86,
+    "number": 148
+  },
+  "room4": {
+    "capacity": 70,
+    "number": 154
+  },
+  "room5": {
+    "capacity": 87,
+    "number": 262
+  },
+  "room6": {
+    "capacity": 95,
+    "number": 307
+  },
+  "room7": {
+    "capacity": 78,
+    "number": 362
+  },
+  "room8": {
+    "capacity": 73,
+    "number": 142
+  },
+  "room9": {
+    "capacity": 85,
+    "number": 350
+  },
+  "room10": {
+    "capacity": 74,
+    "number": 285
+  },
+  "room11": {
+    "capacity": 86,
+    "number": 197
+  },
+  "room12": {
+    "capacity": 74,
+    "number": 321
+  },
+  "room13": {
+    "capacity": 96,
+    "number": 344
+  },
+  "room14": {
+    "capacity": 85,
+    "number": 385
+  },
+  "room15": {
+    "capacity": 99,
+    "number": 250
+  },
+  "room16": {
+    "capacity": 73,
+    "number": 353
+  },
+  "room17": {
+    "capacity": 93,
+    "number": 375
+  },
+  "room18": {
+    "capacity": 73,
+    "number": 193
+  },
+  "room19": {
+    "capacity": 73,
+    "number": 291
+  },
+  "room20": {
+    "capacity": 74,
+    "number": 375
+  },
+  "room21": {
+    "capacity": 75,
+    "number": 225
+  },
+  "room22": {
+    "capacity": 99,
+    "number": 218
+  },
+  "room23": {
+    "capacity": 91,
+    "number": 217
+  },
+  "room24": {
+    "capacity": 77,
+    "number": 344
+  },
+  "room25":{
+  "capacity": 86,
+  "number": 384
+  },
+  "room26":{
+  "capacity": 79,
+  "number": 298
+  },
+  "room27":{
+  "capacity": 84,
+  "number": 119
+  }
+}

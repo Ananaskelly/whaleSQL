@@ -1,0 +1,25 @@
+<div class="profile-wrapper">
+    <div class="profile-left">
+        <div class="profile-photo-wrapper">
+            <img src="/img/student_profile.png" class="profile-photo">
+        </div>
+        <div class="profile-name">
+            {{user.name}}
+        </div>
+        <div class="profile-info">
+            Grade: <span class="profile-info-resize">{{user.grade}}</span> <br>
+            Group: <span class="profile-info-resize">{{user.student_group}}</span>
+        </div>
+        <div class="profile-buttons">
+            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'courses'}" ng-click="changeState('courses')">
+                Courses I'm learning
+            </div>
+            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'marks'}" ng-click="changeState('marks')">
+                My marks
+            </div>
+            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'group'}" ng-click="changeState('group')">
+                My group
+            </div>
+        </div>
+    </div>
+</div>

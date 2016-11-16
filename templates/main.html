@@ -1,0 +1,36 @@
+<div class="main-wrapper" ng-controller="mainCtrl">
+    <div class="main-page-content">
+        <div class="main-page-content-header">
+            Welcome to WhaleSQL
+        </div>
+        <div class="main-page-content-options">
+            <div class="options-wrapper">
+                <div class="main-page-option cursor-pointer" ng-click="setState('teacher')">
+                    <a class="a-white a-remove-decoration">Continue as a teacher</a>
+                </div>
+                <div class="main-page-option cursor-pointer" ng-click="setState('student')">
+                    <a class="a-white a-remove-decoration">Continue as a student</a>
+                </div>
+            </div>
+        </div>
+        <div class="login-form" ng-show="state.type">
+            <div class="input-field">
+                <input placeholder="id key" ng-model="user.id" class="form-control">
+            </div>
+            <div class="input-field" ng-show="state.type === 'teacher'">
+                <input placeholder="password" ng-model="user.password" type="password" class="form-control">
+            </div>
+            <div class="login-button-field">
+                <div class="login-button cursor-pointer" ng-click="logIn()">
+                    Confirm
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-page-footer">
+        <div class="main-page-footer-title">
+            ananaskelly <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACuklEQVQ4T3XTW0jTURwH8O//7K/uvrm1mzNKELygIJlCZLGpUZJaEa4XCaGXEMIEM3soR0YGSRk91FMRSQ9OfFEDCStKExURLCMvaczyP3XzMi+7/09sZTSZ5+3/O//zOed8+R0GMcY7q5U1W63BF48utdK4+LSq6iclO7XdvzO7C20Pqho8Ws0d8bKrZcOouuYTiYhmxt68rVJdEW6tD1RWPzv1/5oooN1aoecVwuuzmSlXlVs++AnBdgILw8om5pJUSP08N8KE/Gcqa9scDEDD0D+gtTLrhLSkqJcJBWhALCLzChFkISBAAJ5SSHxBaJ3uoFcqZoXcUvfFmpdlUcDDqvSDMpNp0p6kjGcB+EDBU/7vHhRSsPAQCv2GH9rZ+UZLne12FBD+eNVcVuhTJ3YwqcbEPKMaGmFc5LpOrx+fuFVQu5OXL63cvVDXcXMnh6gMwknTlB/2nIJsA0u8WFujoBRQKBgwJAGj/d+Wnd/Xky1Wmz8m0H6vtMZUmt/q9YQQzkipZECoD05XEJQKIJKK8aFnpN5yo/t+TKDr8dm+3KOHC2USD0jQCcdPF3ieh1ZDwLLA0qoEX8eXP56ueX08JvD+6fmx/KKMHMfcFEIBL/Q6AoEA4BwUfIhCb5RgeGjjS9Hl7uw9gPKx1LTEHLXcBUKApUUKnge0WgZEADhXhJia9EyYq3uyYgJvWkxvC8z7zAvz7kiDaLQEAhbgFvhImDqDDEODm/3Ftb3HYgKd1oKG3Dxts17tjpzAsUhBeQqNjoAlAOeSY3R48da5xoGmmMBzq0mYqSP2pGShJuTfhE7HgBUACxwPhpXgF+dzuaddB062jG/FBMLFzvpDGfr9sr70dIlBLv/TJm43MDO95nBw/uLyppGJPR/TzkR7RYWAE02UMoQ5QikYPsQPGn1ZXRabLdwgUeM3qzQaIIJI58kAAAAASUVORK5CYII=">
+
+        </div>
+    </div>
+</div>
