@@ -3,6 +3,7 @@ var app = express();
 app.use(express.static(__dirname + '/'));
 app.listen(process.env.PORT || 63333);
 var mysql = require('mysql');
+require('./env.js');
 var connection = mysql.createConnection({
     host     : process.env.HOST,
     user     : process.env.DB_USER,
@@ -32,6 +33,7 @@ connection.connect(function(err) {
     require('./dbFillTestQuery/fillClassroomsTable')(connection);
  */
 
+require('./dbFillTestQuery/fillProfessorsTable')(connection);
 require('./routes/auth')(app,connection);
 require('./routes/studentAPI')(app,connection);
 

@@ -1,0 +1,190 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    min-width: 480px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 105%;
+}
+@font-face {
+    src: url(/fonts/Jura-Regular.otf);
+    font-family: Jura;
+}
+.navbar {
+    border-radius: 0;
+}
+.a-white, .a-white:hover {
+    color: white;
+}
+.a-remove-decoration:hover {
+    text-decoration: none;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.main-wrapper{
+    width: 100%;
+    height: 100%;
+    font-family: Jura;
+}
+.main-page-content {
+    background: url(/img/backGround.jpg);
+    background-size: cover;
+    height: 80%;
+}
+.main-page-footer {
+    background-color: #eeeeee;
+    height: 20%;
+    width: 100%;
+    text-align: right;
+}
+.main-page-footer-title {
+    padding: 70px 15px 0 15px;
+    font-size: 80%;
+    color: darkgray;
+}
+.main-page-content-header {
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+    font-size: 200%;
+    color: white;
+}
+.main-page-content-options {
+    width: 100%;
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+.main-page-option {
+    display: inline;
+    padding: 15px;
+    margin: 30px;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.main-page-option:hover, .login-button:hover {
+    opacity: 0.8;
+}
+.main-page-option:active, .login-button:active {
+    opacity: 0.6;
+}
+.options-wrapper {
+   display: inline;
+}
+.login-form {
+    width: 100%;
+    padding: 15px 0;
+}
+.input-field, .login-button-field {
+    width: 40%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.login-button-field {
+    padding: 10px 100px;
+}
+.login-button {
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 150%;
+    color:white;
+}
+/* PROFILE */
+.profile-wrapper {
+    width: 100%;
+    height: 100%;
+    font-family: Jura;
+}
+.profile-left {
+    height: 100%;
+    box-shadow: 10px -10px 10px -10px lightgrey;
+    text-align: center;
+    padding: 15px 0;
+}
+.profile-right {
+    height: 100%;
+    padding: 30px 15px;
+    text-align: center;
+}
+.profile-table-row {
+    text-align: center;
+}
+.profile-right-content {
+}
+.profile-photo-wrapper{
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(109, 62, 138);
+}
+.profile-photo {
+    width: 60%;
+    height: auto;
+}
+.profile-name {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 120%;
+}
+.profile-info {
+    width: 100%;
+    padding: 5px 15px;
+    text-align: left;
+}
+.profile-info-resize {
+    font-size: 120%;
+    font-weight: 700;
+}
+.profile-buttons {
+    width: 100%;
+    padding-top: 15px;
+}
+.profile-button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 100%;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(109, 62, 138);
+    border-top: 1px solid rgb(109, 62, 138);
+}
+.profile-button-clicked {
+    background-color: rgba(154, 110, 181, 0.75);
+    color:white;
+}
+.profile-button:hover {
+    opacity: 0.8;
+}
+.profile-button:active {
+    opacity: 0.6;
+}
+.header-content {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.main-content {
+    padding-top: 51px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.main-content_1 {
+    padding-top:51px;
+    height: 100%;
+}
+.main-A1 {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+}
+.main-A2 {
+    height: 100%;
+    float: right;
+    width: 70%;
+}
