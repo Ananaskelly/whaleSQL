@@ -1,0 +1,26 @@
+.header-content {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.main-content {
+    padding-top: 51px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.main-content_1 {
+    padding-top:51px;
+    height: 100%;
+}
+.main-A1 {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+}
+.main-A2 {
+    height: 100%;
+    float: right;
+    width: 70%;
+}

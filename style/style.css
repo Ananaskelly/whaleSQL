@@ -1,55 +1,4 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    min-height: 768px;
-    min-width: 480px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 105%;
-}
-@font-face {
-    src: url(/fonts/Jura-Regular.otf);
-    font-family: Jura;
-}
-.navbar {
-    border-radius: 0;
-}
-.a-white, .a-white:hover {
-    color: white;
-}
-.a-remove-decoration:hover {
-    text-decoration: none;
-}
-.cursor-pointer {
-    cursor: pointer;
-} 
-.header-content {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-.main-content {
-    padding-top: 51px;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    /*z-index: -1;*/
-}
-.main-content-1 {
-    padding-top:51px;
-    height: 100%;
-}
-.main-A1 {
-    height: 100%;
-    float: left;
-    width: 30%;
-    position: fixed;
-}
-.main-A2 {
-    height: 100%;
-    float: right;
-    width: 70%;
-}
+
 .main-wrapper{
     width: 100%;
     height: 100%;
@@ -180,7 +129,8 @@ html, body {
     border-top: 1px solid rgb(109, 62, 138);
 }
 .profile-button-clicked {
-    background-color: #eeeeee;
+    background-color: rgba(154, 110, 181, 0.75);
+    color:white;
 }
 .profile-button:hover {
     opacity: 0.8;
