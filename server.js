@@ -4,10 +4,10 @@ app.use(express.static(__dirname + '/'));
 app.listen(process.env.PORT || 63333);
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'whale',
-    password : 'bazzingapank73',
-    database : 'SPbSU'
+    host     : process.env.HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE
 });
 connection.connect(function(err) {
     if (err) {
