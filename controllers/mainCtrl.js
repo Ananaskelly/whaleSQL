@@ -13,13 +13,14 @@ angular.module('app.controller', ['app.service'])
                 id: $scope.user.id
             };
             if ($scope.user.password){
-                userInfo.hash = CryptoJS.MD5(scope.user.password).toString(CryptoJS.enc.Base64);
+                userInfo.hash = CryptoJS.MD5($scope.user.password).toString(CryptoJS.enc.Base64);
             }
             content.auth($scope.state.type,userInfo).then(
                 function(response){
                     console.log(response);
                     $cookies.putObject('user', JSON.stringify(response));
-                    $state.go('profile',{'type': $scope.state.type, 'id': response.unikey})
+                    $cookies.put('level',$scope.state.type);
+                    $state.go('profile_'+$scope.state.type,{'type': $scope.state.type, 'id': response.unikey})
                 },
                 function(error){
                     console.log(error);
