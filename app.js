@@ -13,7 +13,7 @@ bdSPbSu.config(function($stateProvider){
             },
             controller: 'mainCtrl'
         }).
-        state('profile', {
+        state('profile_student', {
             url: '/profile/student/:id',
             views: {
                 "A1": {
@@ -24,6 +24,21 @@ bdSPbSu.config(function($stateProvider){
                     templateUrl: "templates/profile_student.html",
                     controller: 'profileStudentCtrl'
                 },
+                "B": {templateUrl: "templates/navbar.html"}
+            }
+
+        }).
+        state('profile_teacher', {
+            url: '/profile/teacher/:id',
+            views: {
+                "A1": {
+                    templateUrl: "templates/profile.html",
+                    controller: 'profileCtrl'
+                },
+                /*"A2": {
+                    templateUrl: "templates/profile_student.html",
+                    controller: 'profileStudentCtrl'
+                },*/
                 "B": {templateUrl: "templates/navbar.html"}
             }
 
