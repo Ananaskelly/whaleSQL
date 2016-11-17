@@ -1,24 +1,37 @@
 <div class="profile-wrapper">
     <div class="profile-left">
         <div class="profile-photo-wrapper">
-            <img src="/img/student_profile.png" class="profile-photo">
+            <img ng-src="{{'/img/'+level+'_profile.png'}}" class="profile-photo">
         </div>
         <div class="profile-name">
             {{user.name}}
         </div>
-        <div class="profile-info">
+        <div ng-if="level === 'student'" class="profile-info">
             Grade: <span class="profile-info-resize">{{user.grade}}</span> <br>
             Group: <span class="profile-info-resize">{{user.student_group}}</span>
         </div>
         <div class="profile-buttons">
-            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'courses'}" ng-click="changeState('courses')">
-                Courses I'm learning
+            <div ng-show="level === 'student'">
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'courses'}" ng-click="changeState('courses')">
+                    Courses I'm learning
+                </div>
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'marks'}" ng-click="changeState('marks')">
+                    My marks
+                </div>
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'group'}" ng-click="changeState('group')">
+                    My group
+                </div>
             </div>
-            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'marks'}" ng-click="changeState('marks')">
-                My marks
-            </div>
-            <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'group'}" ng-click="changeState('group')">
-                My group
+            <div ng-show="level === 'teacher'">
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'courses'}" ng-click="changeState('courses')">
+                    Courses I'm teaching
+                </div>
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'marks'}" ng-click="changeState('marks')">
+                    Add new mark
+                </div>
+                <div class="profile-button cursor-pointer" ng-class="{'profile-button-clicked': stState === 'group'}" ng-click="changeState('group')">
+                    Journal
+                </div>
             </div>
         </div>
     </div>
