@@ -35,10 +35,10 @@ bdSPbSu.config(function($stateProvider){
                     templateUrl: "templates/profile.html",
                     controller: 'profileCtrl'
                 },
-                /*"A2": {
-                    templateUrl: "templates/profile_student.html",
-                    controller: 'profileStudentCtrl'
-                },*/
+                "A2": {
+                    templateUrl: "templates/profile_teacher.html",
+                    controller: 'profileTeacherCtrl'
+                },
                 "B": {templateUrl: "templates/navbar.html"}
             }
 
@@ -46,4 +46,4 @@ bdSPbSu.config(function($stateProvider){
 });
 bdSPbSu.run(function ($state,$rootScope) {
     $rootScope.$state = $state;
-})
+});

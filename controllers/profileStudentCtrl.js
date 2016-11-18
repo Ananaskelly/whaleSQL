@@ -1,8 +1,8 @@
 angular.module('app.controller')
     .controller('profileStudentCtrl', function($scope,$cookies, content, share){
-        $scope.stState = share.getStudentState();
+        $scope.stState = share.getCurrentState();
 
-        $scope.$watch(function () { return share.getStudentState(); }, function (newValue, oldValue) {
+        $scope.$watch(function () { return share.getCurrentState(); }, function (newValue, oldValue) {
             if (newValue != null) {
                 $scope.stState = newValue;
                 getInfo();
