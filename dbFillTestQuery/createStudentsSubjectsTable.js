@@ -4,6 +4,7 @@ module.exports = function(db){
         'subject_id INT NOT NULL, ' +
         'student_id INT NOT NULL, ' +
         'PRIMARY KEY (id),' +
+        'UNIQUE KEY(subject_id, student_id),' +
         'FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ' +
         'ON UPDATE CASCADE ON DELETE RESTRICT,' +
         'FOREIGN KEY (student_id) REFERENCES students(student_id)' +
