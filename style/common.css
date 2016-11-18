@@ -6,6 +6,11 @@ html, body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 105%;
 }
+@media screen and (max-height: 600px) {
+    .profile-photo-wrapper {
+        display: none !important;
+    }
+}
 @font-face {
     src: url(/fonts/Jura-Regular.otf);
     font-family: Jura;
@@ -21,4 +26,33 @@ html, body {
 }
 .cursor-pointer {
     cursor: pointer;
+}
+.bootstrap-list-overflow{
+    max-height: 400px;
+    overflow-y: scroll;
+    z-index: 99;
+}
+.cl-2 {
+    width: 20%;
+    float: left;
+}
+.cl-3 {
+    width: 33.333%;
+    float: left;
+}
+.cl-7 {
+    width: 80%;
+    float: left;
+}
+.off-7 {
+    margin-left: 80%;
+}
+.input.form-control {
+    border-radius: 3px;
+}
+.form-control[disabled] {
+    background-color: white;
+}
+.font-size-scale-110 {
+    font-size: 110%;
 }

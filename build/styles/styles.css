@@ -6,6 +6,11 @@ html, body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 105%;
 }
+@media screen and (max-height: 600px) {
+    .profile-photo-wrapper {
+        display: none !important;
+    }
+}
 @font-face {
     src: url(/fonts/Jura-Regular.otf);
     font-family: Jura;
@@ -22,7 +27,62 @@ html, body {
 .cursor-pointer {
     cursor: pointer;
 }
-
+.bootstrap-list-overflow{
+    max-height: 400px;
+    overflow-y: scroll;
+    z-index: 99;
+}
+.cl-2 {
+    width: 20%;
+    float: left;
+}
+.cl-3 {
+    width: 33.333%;
+    float: left;
+}
+.cl-7 {
+    width: 80%;
+    float: left;
+}
+.off-7 {
+    margin-left: 80%;
+}
+.input.form-control {
+    border-radius: 3px;
+}
+.form-control[disabled] {
+    background-color: white;
+}
+.font-size-scale-110 {
+    font-size: 110%;
+}
+.profile-teacher-inline-items {
+    padding: 15px;
+}
+.add-mark-section {
+    text-align: left;
+}
+.profile-teacher-decoration {
+    border-bottom: 1px solid #333333;
+}
+.btn-right {
+    float: right;
+}
+.error-msg {
+    width: 100%;
+    padding: 20px;
+    color: white;
+    background-color: rgba(172, 41, 37, 0.7);
+    text-align: center;
+    font-size: 120%;
+    border-radius: 3px;
+    position: relative;
+}
+.error-msg-close {
+    position: absolute;
+    right: 5%;
+    left: 5%;
+}
 .main-wrapper{
     width: 100%;
     height: 100%;
@@ -167,6 +227,7 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 .main-content {
     padding-top: 51px;

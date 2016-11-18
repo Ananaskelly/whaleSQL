@@ -1,0 +1,22 @@
+.profile-teacher-inline-items {
+    padding: 15px;
+}
+.add-mark-section {
+    text-align: left;
+}
+.profile-teacher-decoration {
+    border-bottom: 1px solid #333333;
+}
+.btn-right {
+    float: right;
+}
+.error-msg {
+    width: 100%;
+    padding: 20px;
+    color: white;
+    background-color: rgba(172, 41, 37, 0.7);
+    text-align: center;
+    font-size: 120%;
+    border-radius: 3px;
+    position: relative;
+}
