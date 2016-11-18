@@ -39,6 +39,7 @@ module.exports = function(app, db, parser) {
         db.query('INSERT INTO marks (date,room_number,mark_value,subject_id,student_id,professor_id) VALUES('+mark.date+',(SELECT classroom_id FROM classrooms WHERE number = '+mark.room+'),'+parseInt(mark.mark_value)+',(SELECT subject_id FROM subjects WHERE title = \''+mark.subject+'\'),(SELECT student_id FROM students WHERE name =\''+mark.student+'\'),'+parseInt(mark.professor_id)+');',
             function (err, results, fields) {
                 if (err) {
+                    console.log(err);
                     return res.sendStatus(500);
                 }
                 res.sendStatus(200);

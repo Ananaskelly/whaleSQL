@@ -71,6 +71,21 @@ angular.module('app.service', [])
                 );
                 return getPromise.promise;
             },
+            sendMark: function(data){
+                var postPromise = $q.defer();
+                $http({
+                    'method': 'POST',
+                    'data': data,
+                    'url': '/teacher/api/send/mark'
+                }).then(function(response){
+                        postPromise.resolve(response.data)
+                    },
+                    function(error){
+                        postPromise.reject(error)
+                    }
+                );
+                return postPromise.promise;
+            },
             updateMark: function(data){
                 var postPromise = $q.defer();
                 $http({

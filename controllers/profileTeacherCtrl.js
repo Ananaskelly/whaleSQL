@@ -94,7 +94,6 @@ angular.module('app.controller')
                     $scope.mark = {};
                     $scope.mark.date.year = new Date().getFullYear();
                 }, function () {
-
                     $scope.noValidFlag = true;
                 });
             } else {
