@@ -1,0 +1,216 @@
+<div class="profile-right">
+    <div class="profile-right-content">
+        <div ng-show="pState === 'courses'">
+            <table class="table table-hover">
+                <tr>
+                    <th class="profile-table-row">
+                        #
+                    </th>
+                    <th class="profile-table-row">
+                        Course
+                    </th>
+                </tr>
+                <tr ng-repeat="course in data">
+                    <td>
+                        {{$index}}
+                    </td>
+                    <td ng-click="subjectInfo('subject',course.title)" class="cursor-pointer">
+                        {{course.title}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-show="pState === 'subject'">
+            <table class="table table-hover">
+                <tr>
+                    <th class="profile-table-row">
+                        #
+                    </th>
+                    <th class="profile-table-row">
+                        Name
+                    </th>
+                </tr>
+                <tr ng-repeat="people in data">
+                    <td>
+                        {{$index}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{people.name}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-show="pState === 'journal'">
+            <table class="table table-hover">
+                <tr>
+                    <th class="profile-table-row">
+                        #
+                    </th>
+                    <th class="profile-table-row">
+                        Name
+                    </th>
+                    <th class="profile-table-row">
+                        Mark
+                    </th>
+                    <th class="profile-table-row">
+                        Subject
+                    </th>
+                    <th class="profile-table-row">
+                        Date
+                    </th>
+                    <th class="profile-table-row">
+                        Room
+                    </th>
+                    <th class="profile-table-row">
+                        Delete
+                    </th>
+                </tr>
+                <tr ng-repeat="row in data">
+                    <td>
+                        {{$index}}
+                    </td>
+                    <td class="cursor-pointer" ng-click="updateMark($index)">
+                        {{row.name}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.mark_value}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.title}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.date | date : medium}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.number}}
+                    </td>
+                    <td class="cursor-pointer">
+                        <a class="a-remove-decoration" ng-click="deleteMark(row.mark_id)">X</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="add-mark-section" ng-show="pState === 'add_mark'">
+            <div class="error-msg" ng-show="noValidFlag">
+                Not allowed
+            </div>
+            <form name="markForm" novalidate>
+                <div class="profile-teacher-inline-items cl-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                                ng-click="openSubjects()">
+                            Subject
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li ng-repeat="subject in data" ng-click="setParam('subject',subject.title)">
+                                <a class="cursor-pointer">{{subject.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-teacher-inline-items profile-teacher-decoration cl-7">
+                    <span>&nbsp;{{mark.subject}}</span>
+                </div>
+                <div style="clear: both"></div>
+                <div class="profile-teacher-inline-items cl-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                                ng-click="openStudents()">
+                            Student
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu bootstrap-list-overflow" aria-labelledby="dropdownMenu2">
+                            <li ng-repeat="student in data" ng-click="setParam('student',student.name)">
+                                <a class="cursor-pointer">{{student.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-teacher-inline-items profile-teacher-decoration cl-7">
+                    <span>&nbsp;{{mark.student}}</span>
+                </div>
+                <div style="clear: both"></div>
+                <div class="profile-teacher-inline-items cl-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-click="openRooms()">
+                            Room
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu bootstrap-list-overflow" aria-labelledby="dropdownMenu3">
+                            <li ng-repeat="room in data" ng-click="setParam('room',room.number)">
+                                <a class="cursor-pointer">{{room.number}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-teacher-inline-items profile-teacher-decoration cl-7">
+                    <span>&nbsp;{{mark.room}}</span>
+                </div>
+                <div style="clear: both"></div>
+                <div class="profile-teacher-inline-items cl-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-click="openRooms()">
+                            Mark
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu bootstrap-list-overflow" aria-labelledby="dropdownMenu4">
+                            <li ng-repeat="mark in [2,3,4,5]" ng-click="setParam('mark_value',mark)">
+                                <a class="cursor-pointer">{{mark}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-teacher-inline-items profile-teacher-decoration cl-7">
+                    <span>&nbsp;{{mark.mark_value}}</span>
+                </div>
+                <div style="clear: both"></div>
+                <div>
+                    <div class="profile-teacher-inline-items cl-2">
+                        <div class="input-group">
+                            <input ng-model="mark.date.day" type="text" class="form-control" aria-label="..." disabled>
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Day<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu bootstrap-list-overflow">
+                                    <li ng-repeat="day in days" ng-click="setDate('day',day)"><a>{{day}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-teacher-inline-items cl-3">
+                        <div class="input-group">
+                            <input ng-model="mark.date.month" type="text" class="form-control" aria-label="..."
+                                   disabled>
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Month<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu bootstrap-list-overflow">
+                                    <li ng-repeat="month in ['01','02','03','04','05','06','07','08','09','10','11','12']"
+                                        ng-click="setDate('month',month)"><a>{{month}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-teacher-inline-items cl-2">
+                        <div class="input-group">
+                            <input type="text" ng-model="mark.date.year" placeholder="year"
+                                   class="form-control border-radius">
+                        </div>
+                    </div>
+                    <div class="profile-teacher-inline-items cl-2 off-7">
+                        <button class="btn btn-default btn-right font-size-scale-110" ng-click="sendMark()">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
