@@ -1,1 +1,1 @@
-WhaleSQL project
+WhaleSQL project for learning mysql
