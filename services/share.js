@@ -2,10 +2,10 @@ angular.module('app.service')
     .service('share', function(){
         stState = 'courses';
         return {
-            getStudentState: function () {
+            getCurrentState: function () {
                 return stState;
             },
-            setStudentState: function (value) {
+            setCurrentState: function (value) {
                 stState = value;
             }
         }
