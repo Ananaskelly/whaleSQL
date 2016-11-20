@@ -24,7 +24,7 @@ angular.module('app.service', [])
                         getPromise.resolve(response.data)
                     },
                     function(error){
-                        getPromise.resolve(error)
+                        getPromise.reject(error)
                     }
                 );
                 return getPromise.promise;

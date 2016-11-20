@@ -40,5 +40,43 @@
                 </tr>
             </table>
         </div>
+        <div ng-show="stState === 'marks'">
+            <table class="table table-hover">
+                <tr>
+                    <th class="profile-table-row">
+                        #
+                    </th>
+                    <th class="profile-table-row">
+                        Mark
+                    </th>
+                    <th class="profile-table-row">
+                        Subject
+                    </th>
+                    <th class="profile-table-row">
+                        Date
+                    </th>
+                    <th class="profile-table-row">
+                        Room
+                    </th>
+                </tr>
+                <tr ng-repeat="row in data">
+                    <td>
+                        {{$index}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.mark_value}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.title}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.date | date : medium}}
+                    </td>
+                    <td class="cursor-pointer">
+                        {{row.number}}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

@@ -11,6 +11,21 @@ module.exports = function(app, db){
                 }
             })
     });
+    app.get('/student/api/marks/:id', function(req,res){
+        var id = req.params.id;
+        db.query('SELECT * FROM marks JOIN subjects ON marks.subject_id = subjects.subject_id JOIN classrooms ON marks.room_number = classrooms.classroom_id WHERE `student_id` = '+parseInt(id)+';',
+            function(err,results,fields){
+                if (err){
+                    return res.sendStatus(500);
+                }
+                if (results.length > 0) {
+                    res.send(JSON.stringify(results));
+                }
+                else {
+                    res.send({});
+                }
+            })
+    });
     app.get('/student/api/group/:id', function(req,res){
         var id = req.params.id;
         db.query('SELECT * FROM students WHERE student_group = (SELECT student_group FROM students WHERE student_id = '+parseInt(id)+')' + ' AND grade = (SELECT grade FROM students WHERE student_id = '+parseInt(id)+')',
