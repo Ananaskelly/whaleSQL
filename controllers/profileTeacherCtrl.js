@@ -6,7 +6,9 @@ angular.module('app.controller')
 
             if (newValue != null && newValue != $scope.pState) {
                 $scope.pState = newValue;
-                getInfo();
+                if ($scope.pState !== 'add_mark') {
+                    getInfo();
+                }
             }
         }, true);
 
@@ -34,7 +36,7 @@ angular.module('app.controller')
             if (!additional) {
                 additional = $scope.pState;
             }
-
+            $scope.data = {};
             content.getTeacherInfo(user.professor_id, additional).then(function (response) {
                 $scope.data = response;
                 console.log($scope.data);

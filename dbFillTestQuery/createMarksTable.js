@@ -8,13 +8,13 @@ module.exports = function(db){
         'student_id INT NOT NULL,' +
         'professor_id INT NOT NULL,' +
         'FOREIGN KEY (student_id) REFERENCES students(student_id) ' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'FOREIGN KEY (professor_id) REFERENCES professors(professor_id)' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'FOREIGN KEY (room_number) REFERENCES classrooms(classroom_id) ' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'PRIMARY KEY (mark_id) ' +
         ');', function (error, results, fields) {
         if (error){

@@ -11,10 +11,10 @@
 
 <div class="header-content" ui-view="B"></div>
 
-<div class="main-content" ui-view="A" ng-show="$state.current.name === 'main'">
+<div class="main-content" ui-view="A" ng-show="$state.current.name === 'main' || $state.current.name === 'admin'">
 </div>
 
-<div class="main-content_1" ng-show="$state.current.name !== 'main'">
+<div class="main-content_1" ng-show="$state.current.name !== 'main' && $state.current.name !== 'admin'">
     <div class="main-A1" ui-view="A1"></div>
     <div class="main-A2" ui-view="A2"></div>
 </div>
@@ -30,6 +30,7 @@
 <script src="controllers/profileStudentCtrl.js"></script>
 <script src="controllers/navCtrl.js"></script>
 <script src="controllers/profileTeacherCtrl.js"></script>
+<script src="controllers/adminCtrl.js"></script>
 <script src="services/content.js"></script>
 <script src="services/share.js"></script>
 </body>

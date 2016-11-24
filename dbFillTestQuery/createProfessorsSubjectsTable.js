@@ -5,9 +5,9 @@ module.exports = function(db){
         'professor_id INT NOT NULL, ' +
         'PRIMARY KEY (id),' +
         'FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'FOREIGN KEY (professor_id) REFERENCES professors(professor_id)' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT' +
+        'ON UPDATE CASCADE ON DELETE CASCADE' +
         ')', function(error, results, fields){
             if (error) {
                 console.log(error);

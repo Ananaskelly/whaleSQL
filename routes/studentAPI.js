@@ -38,5 +38,22 @@ module.exports = function(app, db){
                     return res.send(JSON.stringify(results));
                 }
             })
+    });
+    app.get('/student/api/gpa/:id', function(req,res){
+        var id = req.params.id;
+        db.query('SELECT mark_value FROM marks WHERE student_id = ' + id,
+            function(err,results,fields){
+                if (err){
+                    return res.sendStatus(500);
+                }
+                if (results.length > 0) {
+                    var sum = 0.0;
+                    for (var i=0; i<results.length; i++){
+                        sum += parseInt(results[i].mark_value);
+                    }
+                    sum /= results.length;
+                    return res.send({'result': sum});
+                }
+            })
     })
 };

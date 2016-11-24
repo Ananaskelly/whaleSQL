@@ -56,3 +56,13 @@ html, body {
 .font-size-scale-110 {
     font-size: 110%;
 }
+.basic-hover:hover {
+    opacity: 0.8;
+}
+.basic-hover:active {
+    opacity: 0.6;
+}
+.table-row {
+    text-align: center;
+    max-width: 200px;
+}

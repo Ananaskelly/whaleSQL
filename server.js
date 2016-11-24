@@ -22,7 +22,7 @@ connection.connect(function(err) {
 /*
     require('./dbFillTestQuery/createStudentsTable')(connection);
     require('./dbFillTestQuery/createSubjectsTable')(connection);
-    require('./dbFillTestQuery/createStudentsSubjectsTable')(connection);
+    require('./dbFillTestQuery/createMarksTable')(connection);
     require('./dbFillTestQuery/createStudentsSubjectsTable')(connection);
     require('./dbFillTestQuery/createClassroomsTable')(connection);
     require('./dbFillTestQuery/createProfessorsTable')(connection);
@@ -32,6 +32,7 @@ connection.connect(function(err) {
     require('./dbFillTestQuery/addNameColumnToStudentsTable')(connection);
     require('./dbFillTestQuery/fillStudentsTable')(connection);
     require('./dbFillTestQuery/fillSubjectsTable')(connection);
+    require('./dbFillTestQuery/fillProfessorsTable')(connection);
     require('./dbFillTestQuery/fillSubjectStudentTable')(connection);
     require('./dbFillTestQuery/fillProfessorSubjectTable')(connection);
     require('./dbFillTestQuery/fillClassroomsTable')(connection);
@@ -39,7 +40,7 @@ connection.connect(function(err) {
 
  */
 
-//require('./dbFillTestQuery/createMarksTable')(connection);
+
 //require('./dbFillTestQuery/createCheckRoomTrigger')(connection);
 //require('./dbFillTestQuery/createStudentsSubjectsTable')(connection);
 
@@ -51,6 +52,7 @@ require('./routes/teacherAPI')(app,connection, jsonParser);
 require('./routes/auth')(app,connection);
 require('./routes/studentAPI')(app,connection);
 require('./routes/roomsAPI')(app,connection);
+require('./routes/adminAPI')(app,connection, jsonParser);
 app.get('/',function(req,res){
     res.sendFile(__dirname + '/index.html');
 });

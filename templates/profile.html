@@ -9,7 +9,8 @@
         </div>
         <div ng-if="level === 'student'" class="profile-info">
             Grade: <span class="profile-info-resize">{{user.grade}}</span> <br>
-            Group: <span class="profile-info-resize">{{user.student_group}}</span>
+            Group: <span class="profile-info-resize">{{user.student_group}}</span><br>
+            GPA: <span class="profile-info-resize">{{userParam}}</span>
         </div>
         <div class="profile-buttons">
             <div ng-show="level === 'student'">

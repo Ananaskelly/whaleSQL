@@ -1,0 +1,212 @@
+<div class="admin-wrapper" ng-controller="adminCtrl">
+    <div class="admin-choose-panel">
+        <div class="admin-panel-button-wrapper cursor-pointer basic-hover" ng-class="{'admin-button-clicked': adminState === 'students'}" ng-click="changeState('students')">
+            Students
+        </div>
+        <div class="admin-panel-button-wrapper cursor-pointer basic-hover" ng-class="{'admin-button-clicked': adminState === 'professors'}" ng-click="changeState('professors')">
+            Professors
+        </div>
+        <div class="admin-panel-button-wrapper cursor-pointer basic-hover" ng-class="{'admin-button-clicked': adminState === 'subjects'}" ng-click="changeState('subjects')">
+            Subjects
+        </div>
+        <div class="admin-panel-button-wrapper cursor-pointer basic-hover" ng-class="{'admin-button-clicked': adminState === 'classrooms'}" ng-click="changeState('classrooms')">
+            Rooms
+        </div>
+        <div class="admin-panel-button-wrapper cursor-pointer basic-hover" ng-class="{'admin-button-clicked': adminState === 'create'}" ng-click="changeState('create')">
+            Add new
+        </div>
+    </div>
+    <div class="admin-table-content" ng-show="adminState === 'students'">
+        <table class="table table-hover">
+            <tr>
+                <th class="profile-table-row">
+                    #
+                </th>
+                <th class="profile-table-row">
+                    Student
+                </th>
+                <th class="profile-table-row">
+                    Group
+                </th>
+                <th class="profile-table-row">
+                    Subjects
+                </th>
+                <th class="profile-table-row">
+                    Grade
+                </th>
+                <th class="profile-table-row">
+                    Delete
+                </th>
+            </tr>
+            <tr ng-repeat="row in data">
+                <td class="table-row">
+                    {{$index}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="updateItem($index)">
+                    {{row.name}}
+                </td>
+                <td class="cursor-pointer table-row">
+                    {{row.student_group}}
+                </td>
+                <td class="cursor-pointer table-row">
+                    {{row.titles}}
+                </td>
+                <td class="cursor-pointer table-row">
+                    {{row.grade}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="deleteItem(row.student_id)">
+                    <a>&times;</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="admin-table-content" ng-show="adminState === 'professors'">
+        <table class="table table-hover">
+            <tr>
+                <th class="profile-table-row">
+                    #
+                </th>
+                <th class="profile-table-row">
+                    Professor
+                </th>
+                <th class="profile-table-row">
+                    Subjects
+                </th>
+                <th class="profile-table-row" >
+                    Delete
+                </th>
+            </tr>
+            <tr ng-repeat="row in data">
+                <td class="table-row">
+                    {{$index}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="updateItem($index)">
+                    {{row.name}}
+                </td>
+                <td class="cursor-pointer table-row">
+                    {{row.titles}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="deleteItem(row.professor_id)">
+                    <a>&times;</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="admin-table-content" ng-show="adminState === 'classrooms'">
+        <table class="table table-hover">
+            <tr>
+                <th class="profile-table-row">
+                    #
+                </th>
+                <th class="profile-table-row">
+                    Number
+                </th>
+                <th class="profile-table-row">
+                    Capacity
+                </th>
+                <th class="profile-table-row">
+                    Delete
+                </th>
+            </tr>
+            <tr ng-repeat="row in data">
+                <td class="table-row">
+                    {{$index}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="updateItem($index)">
+                    {{row.number}}
+                </td>
+                <td class="cursor-pointer table-row">
+                    {{row.capacity}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="deleteItem(row.classroom_id)">
+                    <a>&times;</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="admin-table-content" ng-show="adminState === 'subjects'">
+        <table class="table table-hover">
+            <tr>
+                <th class="profile-table-row">
+                    #
+                </th>
+                <th class="profile-table-row">
+                    Title
+                </th>
+                <th class="profile-table-row">
+                    Delete
+                </th>
+            </tr>
+            <tr ng-repeat="row in data">
+                <td class="table-row">
+                    {{$index}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="updateItem($index)">
+                    {{row.title}}
+                </td>
+                <td class="cursor-pointer table-row" ng-click="deleteItem(row.classroom_id)">
+                    <a>&times;</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="admin-update-panel" ng-show="adminState === 'update'">
+        <div class="update-item-header">
+            {{state}} profile:
+        </div>
+        <div class="update-item" ng-repeat="(key, value) in updItem">
+            <input class="form-control" placeholder="{{key}}" ng-model="updItem[key]" ng-disabled="disabledFields.indexOf(key) !== -1">
+        </div>
+        <div class="update-item upd-btn">
+            <button class="btn btn-primary" ng-click="saveUPD()">Save changes</button>
+        </div>
+        <div class="update-item" ng-show="updItemSubjects.length > 0">
+            <div class="update-subject basic-hover" ng-repeat="subj in updItemSubjects">
+                {{subj}}&nbsp;<a ng-click="deleteSubjRelation(subj)" class="cursor-pointer">&times;</a>
+            </div>
+            <div class="update-subject-dropdown">
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                            ng-click="openSubjects()">
+                        Subject
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu bootstrap-list-overflow" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="subject in data" ng-click="createRelation(subject.title)">
+                            <a class="cursor-pointer">{{subject.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="admin-create-panel" ng-show="adminState === 'create'">
+        <div class="dropdown cl-2 ">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                    ng-click="openSubjects()">
+                Category
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu bootstrap-list-overflow" aria-labelledby="dropdownMenu2">
+                <li ng-repeat="category in ['students', 'professors', 'classrooms', 'subjects' ]" ng-click="chooseC_Category(category)">
+                    <a class="cursor-pointer">{{category}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="cl-7">
+            <span class="help-block" ng-if="createCategory">You choose {{createCategory}} category!</span>
+            <span class="help-block" ng-if="!createCategory">Choose category</span>
+        </div>
+        <div style="clear: both"></div>
+        <div class="admin-create-item" ng-repeat="field in createObjectFields[createCategory]">
+            <div class="cl-2 admin-create-panel-label">{{field}}:</div>
+            <div class="cl-7"><input class="form-control" ng-model="createObj[field]"/></div>
+            <div style="clear: both"></div>
+        </div>
+        <div ng-show="createCategory" class="admin-create-accept-btn">
+            <button class="btn btn-primary" ng-click="create()">Create</button>
+        </div>
+    </div>
+</div>

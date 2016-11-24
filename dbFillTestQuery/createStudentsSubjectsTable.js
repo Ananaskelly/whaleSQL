@@ -6,9 +6,9 @@ module.exports = function(db){
         'PRIMARY KEY (id),' +
         'UNIQUE KEY(subject_id, student_id),' +
         'FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT,' +
+        'ON UPDATE CASCADE ON DELETE CASCADE,' +
         'FOREIGN KEY (student_id) REFERENCES students(student_id)' +
-        'ON UPDATE CASCADE ON DELETE RESTRICT' +
+        'ON UPDATE CASCADE ON DELETE CASCADE' +
     ')', function(error, results, fields){
         console.log(error);
     })

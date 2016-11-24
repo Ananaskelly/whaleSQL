@@ -42,6 +42,13 @@ bdSPbSu.config(function ($stateProvider) {
                 B: { templateUrl: 'templates/navbar.html' },
             },
 
+        }).
+        state('admin', {
+            url: '/admin',
+            views: {
+                A: { templateUrl: 'templates/admin_panel.html' },
+                B: { templateUrl: 'templates/navbar.html' },
+            },
         });
 });
 

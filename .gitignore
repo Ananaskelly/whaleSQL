@@ -60,3 +60,6 @@ jspm_packages
 
 # env
 env.js
+
+# cs
+.jscsrc

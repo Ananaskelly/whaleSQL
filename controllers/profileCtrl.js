@@ -1,5 +1,5 @@
 angular.module('app.controller')
-    .controller('profileCtrl', function ($scope, $cookies, share) {
+    .controller('profileCtrl', function ($scope, $cookies, share, content) {
         $scope.user = {};
         $scope.stState = 'courses';
         $scope.level = $cookies.get('level');
@@ -18,4 +18,9 @@ angular.module('app.controller')
             share.setCurrentState(value);
             $scope.stState = value;
         };
+        if ($scope.level === 'student') {
+            content.getStudentInfo($scope.user.student_id, 'gpa').then(function (response) {
+                $scope.userParam = response.result;
+            });
+        }
     });

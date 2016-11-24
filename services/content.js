@@ -1,6 +1,106 @@
 angular.module('app.service', [])
     .service('content', function($q, $http){
         return {
+            adminGET : function(type){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'GET',
+                    'url': '/admin/api/'+type
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminDELETE : function(type, id){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'DELETE',
+                    'url': '/admin/api?type=' + type + '&id=' +id
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminUPDATE : function(data,type){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'PUT',
+                    'data': data,
+                    'url': '/admin/api/' + type
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminDELETE_R : function(type, title, id){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'DELETE',
+                    'url': '/admin/special/api?type=' + type + '&title=' + title + '&id=' + id
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminGET_Subjects : function(){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'GET',
+                    'url': '/admin/help/subjects'
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminCREATE_R : function(type, title, id){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'PUT',
+                    'url': '/admin/create?type='+ type + '&title=' + title + '&id=' + id
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
+            adminCREATE_O : function(type, data){
+                var getPromise = $q.defer();
+                $http({
+                    'method': 'POST',
+                    'data': data,
+                    'url': '/admin/create?type='+ type
+                }).then(function(response){
+                        getPromise.resolve(response.data);
+                    },
+                    function(error){
+                        getPromise.reject(error)
+                    }
+                );
+                return getPromise.promise;
+            },
             auth: function(type,userInfo){
                 var getPromise = $q.defer();
                 $http({
